@@ -46,4 +46,13 @@ class FirstSpecification extends Specification {
             2 | 2 | 4
             3 | 2 | 9
     }
+
+    def "Should verify notify was called"() {
+        given:
+            def notifier = Mock(Notifier)
+        when:
+            notifier.notify('foo')
+        then:
+            1 * notifier.notify('foo')
+    }
 }
